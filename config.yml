@@ -1,0 +1,80 @@
+---
+downloads: ~/.ansible-downloads/
+
+configure_dotfiles: true
+configure_preferences: true
+configure_osx: true
+
+# Set to 'true' to configure the Dock via dockutil.
+configure_dock: true
+dockitems_remove: []
+- Launchpad
+- Mail
+- Maps
+- Messages
+- FaceTime
+- Reminders
+- TV
+- Podcasts
+- 'App Store'
+dockitems_persist: []
+- name: "Safari"
+  path: "/Applications/Safari.app/"
+  pos: 2
+- name: "Calendar"
+  path: "/Applications/Calendar.app/"
+  pos: 3
+- name: "Music"
+  path: "/Applications/Music.app/"
+  pos: 4
+- name: "Notes"
+  path: "/Applications/Notes.app/"
+  pos: 5
+
+homebrew_installed_packages:
+  # - ansible # Installed via Pip.
+  - git
+  - go
+  - nvm
+  - zsh
+  - jq
+  - htop
+  - vcpkg
+  - maven
+  - gradle
+  - openjdk@8
+  - awscli
+  - openvpn
+  - openssl
+  - telnet
+  - sqlite
+
+homebrew_taps:
+  - homebrew/core
+  - homebrew/cask
+
+homebrew_cask_appdir: /Applications
+homebrew_cask_apps:
+  - docker
+  - firefox
+  - google-chrome
+  - visual-studio-code
+  - intellij-idea
+  - iterm2
+  - discord
+  - slack
+  - zoom
+  - prusaslicer
+  - vlc
+  - adguard
+  - fanny
+  - insomnia
+  - google-drive
+  - parallels
+  - pd-runner
+  - xquartz
+
+# See `geerlingguy.mas` role documentation for usage instructions.
+mas_installed_apps: []
+mas_email: ""
+mas_password: ""
