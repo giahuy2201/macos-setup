@@ -17,19 +17,16 @@
   tasks:
       - name: Set mac preferences.
         command: "./scripts/set-preferences.sh"
-        changed_when: false
         when: configure_preferences
         tags: ["preferences"]
 
       - name: Create dotfile links.
-        command: "./scripts/create-home-links.sh"
-        changed_when: false
+        command: "./scripts/create-dotfile-links.sh"
         when: configure_dotfiles
         tags: ["dotfiles"]
 
       - name: Create plist links.
         command: "./scripts/create-plist-links.sh"
-        changed_when: false
         when: configure_apps
         tags: ["apps"]
 
