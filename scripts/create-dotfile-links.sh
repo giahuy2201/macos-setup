@@ -6,5 +6,5 @@
 
 # for every dot file, create a soft link at ~
 for file in dotfiles/.[^.]*
-	do ln -fs $(pwd)/dotfiles/$file ~/$file
+	do ln -fs $(pwd)/dotfiles/$file ~
 done

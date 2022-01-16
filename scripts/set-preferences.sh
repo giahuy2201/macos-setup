@@ -71,3 +71,6 @@ scutil --set ComputerName $hostname
 scutil --set HostName $hostname
 scutil --set LocalHostName $hostname
 defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string $hostname
+
+# Chrome
+defaults write com.google.Chrome NSUserKeyEquivalents -dict-add "Duplicate Tab" "@\$l"
