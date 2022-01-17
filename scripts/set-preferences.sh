@@ -49,6 +49,8 @@ defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 # Avoid creating .DS_Store files on network volumes
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+# Show the ~/Library folder
+chflags nohidden ~/Library
 
 # Safari
 # Enable the Develop menu and the Web Inspector in Safari
