@@ -50,6 +50,7 @@ homebrew_installed_packages:
     - git
     - go
     - nvm
+    - jenv
     - zsh
     - jq
     - htop
@@ -62,6 +63,7 @@ homebrew_installed_packages:
     - openssl
     - telnet
     - sqlite
+    - spoof-mac
 
 homebrew_taps:
     - homebrew/core
@@ -87,6 +89,8 @@ homebrew_cask_apps:
     - parallels
     - pd-runner
     - xquartz
+    - vnc-viewer
+    - ngrok
 
 # See `geerlingguy.mas` role documentation for usage instructions.
 mas_email: ""

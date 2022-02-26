@@ -4,6 +4,9 @@
 defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
 defaults write NSGlobalDomain AppleWindowTabbingMode -string "always"
 defaults write NSGlobalDomain AppleWindowTabbingMode -string AppleShowScrollBars "WhenScrolling"
+# Reduce animation & 1.5x cursor size
+defaults write com.apple.universalaccess reduceMotion -bool true
+defaults write com.apple.universalaccess mouseDriverCursorSize -float 1.5
 
 # Dock
 defaults write com.apple.dock autohide -bool true
