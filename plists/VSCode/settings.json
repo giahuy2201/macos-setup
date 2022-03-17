@@ -29,21 +29,21 @@
         "editor.defaultFormatter": "DotJoshJohnson.xml"
     },
     "[java]": {
-        "editor.defaultFormatter": "redhat.java",
-      },
+        "editor.defaultFormatter": "redhat.java"
+    },
     "[pascal]": {
-        "editor.formatOnSave": false,
-      },
+        "editor.formatOnSave": false
+    },
     "java.project.importHint": false,
     "latex-workshop.view.pdf.viewer": "tab",
     "latex-workshop.docker.enabled": true,
     "latex-workshop.synctex.afterBuild.enabled": true,
     "latex-workshop.docker.image.latex": "tianon/latex",
-    
-    "latex-workshop.message.badbox.show":false,
-    "latex-workshop.latex.autoBuild.run":"never",
-    "latex-workshop.latex.autoClean.run":"onBuilt",
-    "latex-workshop.latex.clean.fileTypes":[
+
+    "latex-workshop.message.badbox.show": false,
+    "latex-workshop.latex.autoBuild.run": "never",
+    "latex-workshop.latex.autoClean.run": "onBuilt",
+    "latex-workshop.latex.clean.fileTypes": [
         "*.aux",
         "*.bbl",
         "*.blg",
@@ -66,56 +66,60 @@
         "*.synctex(busy)",
         "*.synctex.gz(busy)",
         "*.nav",
-        "*.synctex.gz",
+        "*.synctex.gz"
     ],
-    "latex-workshop.intellisense.includegraphics.preview.enabled":true,
-    "latex-workshop.latex.tools":[{
-        "name": "latexmk",
-        "command": "latexmk",
-        "args": [
-            "-shell-escape",
-            "-synctex=1",
-            "-interaction=nonstopmode",
-            "-file-line-error",
-            "-pdf",
-            "-outdir=%OUTDIR%",
-            "%DOC%"
-        ]
-    }
-],
-"explorer.confirmDelete": false,
-"cmake.configureOnOpen": true,
-"[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-},
-"editor.wordWrap": "off",
-"[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-},
-"angular.enable-experimental-ivy-prompt": false,
-"workbench.colorTheme": "Monokai Dimmed",
-"vim.vimrc.enable": true,
-"[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-},
-"terminal.integrated.tabs.enabled": true,
-"editor.tabSize": 8,
-"editor.cursorStyle": "line",
-"editor.insertSpaces": false,
-"editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
-"window.zoomLevel": 2,
-"[latex]": {
-    "editor.defaultFormatter": "James-Yu.latex-workshop"
-},
-"workbench.activityBar.visible": false,
-"bracketPairColorizer.depreciation-notice": false,
-"notebook.globalToolbarShowLabel": "never",
-"notebook.insertToolbarLocation": "notebookToolbar",
-"notebook.cellToolbarLocation": {
-    "default": "right",
-    "jupyter-notebook": "right"
-},
-"terminal.external.osxExec": "iTerm2.app",
-"security.workspace.trust.untrustedFiles": "open"
-
+    "latex-workshop.intellisense.includegraphics.preview.enabled": true,
+    "latex-workshop.latex.tools": [
+        {
+            "name": "latexmk",
+            "command": "latexmk",
+            "args": [
+                "-shell-escape",
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "-outdir=%OUTDIR%",
+                "%DOC%"
+            ]
+        }
+    ],
+    "explorer.confirmDelete": false,
+    "cmake.configureOnOpen": true,
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.wordWrap": "off",
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "angular.enable-experimental-ivy-prompt": false,
+    "workbench.colorTheme": "Default High Contrast",
+    "vim.vimrc.enable": true,
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "terminal.integrated.tabs.enabled": true,
+    "editor.cursorStyle": "line",
+    "editor.insertSpaces": false,
+    "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+    "window.zoomLevel": 2,
+    "[latex]": {
+        "editor.defaultFormatter": "James-Yu.latex-workshop"
+    },
+    "workbench.activityBar.visible": false,
+    "bracketPairColorizer.depreciation-notice": false,
+    "notebook.globalToolbarShowLabel": "never",
+    "notebook.insertToolbarLocation": "notebookToolbar",
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "right"
+    },
+    "terminal.external.osxExec": "iTerm2.app",
+    "security.workspace.trust.untrustedFiles": "open",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.python"
+    },
+    "python.formatting.provider": "black"
 }

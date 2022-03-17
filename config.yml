@@ -64,6 +64,7 @@ homebrew_installed_packages:
     - telnet
     - sqlite
     - spoof-mac
+    - mysql-client
 
 homebrew_taps:
     - homebrew/core
@@ -78,7 +79,6 @@ homebrew_cask_apps:
     - intellij-idea
     - iterm2
     - discord
-    - slack
     - zoom
     - prusaslicer
     - vlc
@@ -86,11 +86,12 @@ homebrew_cask_apps:
     - fanny
     - insomnia
     - google-drive
-    - parallels
-    - pd-runner
+    - utm
     - xquartz
     - vnc-viewer
     - ngrok
+    - wireshark
+    - wireshark-chmodbpf
 
 # See `geerlingguy.mas` role documentation for usage instructions.
 mas_email: ""

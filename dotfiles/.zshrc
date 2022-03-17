@@ -66,3 +66,5 @@ export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 export ANDROID_SDK_ROOT="$HOME/Library/Android/sdk"
 # -- sublime text --
 alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
+# -- mysql-client --
+export PATH="/usr/local/opt/mysql-client/bin:$PATH"
