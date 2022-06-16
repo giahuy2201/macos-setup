@@ -36,10 +36,11 @@ alias sql="docker stop sql ; docker rm sql ; docker run --name sql -p 3306:3306 
 alias cld="/Users/giahuy/Library/Mobile\ Documents/com~apple~CloudDocs"
 alias proj="/Users/giahuy/Library/Mobile\ Documents/com~apple~CloudDocs/project"
 alias github="/Users/giahuy/Downloads/github"
-alias curr="/Users/giahuy/Documents/current"
+alias dang="/Users/giahuy/Downloads/Đang"
 export mac="/Users/giahuy/Documents/macos-setup"
 alias mac="$mac"
 alias gs="git status"
+alias gl="git log"
 
 # --- concordia ---
 alias c478="/Users/giahuy/Library/Mobile\ Documents/com~apple~CloudDocs/Winter\ 2022/comp478"
@@ -68,3 +69,4 @@ export ANDROID_SDK_ROOT="$HOME/Library/Android/sdk"
 alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 # -- mysql-client --
 export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+
