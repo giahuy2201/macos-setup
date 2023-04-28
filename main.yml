@@ -29,8 +29,3 @@
         command: "./scripts/create-plist-links.sh"
         when: configure_apps
         tags: ["apps"]
-
-      - name: Link 'my-magic' omz custom theme.
-        shell: ln -fs $(pwd)/custom/my-magic.zsh-theme ~/.oh-my-zsh/themes
-        when: configure_apps
-        tags: ["apps","custom"]

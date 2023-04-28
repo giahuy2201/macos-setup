@@ -8,7 +8,6 @@
     "vim.handleKeys": {
         "<C-d>": true
     },
-    "timeline.excludeSources": [],
     "workbench.statusBar.visible": true,
     "editor.renderWhitespace": "none",
     "extensions.ignoreRecommendations": true,
@@ -121,14 +120,15 @@
         "editor.defaultFormatter": "ms-python.python"
     },
     "python.formatting.provider": "black",
-    "python.formatting.yapfArgs": [
-        "use_tabs=True"
-    ],
+    "python.formatting.yapfArgs": ["use_tabs=True"],
     "[cpp]": {
         "editor.defaultFormatter": "ms-vscode.cpptools"
     },
     "extensions.autoUpdate": false,
     "[rust]": {
         "editor.defaultFormatter": "rust-lang.rust"
-    }
+    },
+    "editor.scrollbar.verticalScrollbarSize": 6,
+    "editor.scrollbar.horizontalScrollbarSize": 6,
+    "editor.formatOnSave": true
 }
