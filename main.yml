@@ -20,8 +20,8 @@
         when: configure_preferences
         tags: ["preferences"]
 
-      - name: Create dotfile links.
-        command: "./scripts/create-dotfile-links.sh"
+      - name: Stow dotfiles
+        command: "stow --target $HOME *"
         when: configure_dotfiles
         tags: ["dotfiles"]
 

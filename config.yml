@@ -69,6 +69,7 @@ homebrew_installed_packages:
     - binwalk
     - ffmpeg
     - esptool
+    - stow
 
 homebrew_taps:
     - homebrew/core
