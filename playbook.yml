@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: localhost
 
   vars_files:
       - config.yml
@@ -19,13 +19,3 @@
         command: "./scripts/set-preferences.sh"
         when: configure_preferences
         tags: ["preferences"]
-
-      - name: Stow dotfiles
-        command: "stow --target $HOME *"
-        when: configure_dotfiles
-        tags: ["dotfiles"]
-
-      - name: Create plist links.
-        command: "./scripts/create-plist-links.sh"
-        when: configure_apps
-        tags: ["apps"]

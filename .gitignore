@@ -1,7 +1,2 @@
-# Unwanted macOS files
-*.DS_Store
-*.LSOverride
-Thumbs.db
-
-# Ansible files
-roles
+.DS_Store
+inventory
