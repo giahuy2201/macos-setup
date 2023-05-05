@@ -1,0 +1,72 @@
+---
+- name: Enable force click
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: com.apple.trackpad.forceClick
+    type: boolean
+    value: true
+
+- name: Enable haptic feedback
+  osx_defaults:
+    domain: com.apple.AppleMultitouchTrackpad
+    key: ActuateDetents
+    type: integer
+    value: 1
+
+- name: Set tracking speed
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: com.apple.trackpad.scaling
+    type: float
+    value: 0.8
+
+# 0: Light, 1: Medium, 2: Firm
+
+- name: Set first click feedback level
+  osx_defaults:
+    domain: com.apple.AppleMultitouchTrackpad
+    key: FirstClickThreshold
+    type: integer
+    value: 0
+
+- name: Set second click feedback level
+  osx_defaults:
+    domain: com.apple.AppleMultitouchTrackpad
+    key: SecondClickThreshold
+    type: integer
+    value: 0
+
+- name: Enable three finger drag
+  osx_defaults:
+    domain: com.apple.AppleMultitouchTrackpad
+    key: TrackpadThreeFingerDrag
+    type: boolean
+    value: true
+
+- name: Enable right click
+  osx_defaults:
+    domain: com.apple.AppleMultitouchTrackpad
+    key: TrackpadRightClick
+    type: boolean
+    value: true
+
+- name: Disable Press and Hold
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: ApplePressAndHoldEnabled
+    type: boolean
+    value: false
+
+- name: Set key repeat delay
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: InitialKeyRepeat
+    type: integer
+    value: 10
+
+- name: Set key repeat rate
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: KeyRepeat
+    type: integer
+    value: 1

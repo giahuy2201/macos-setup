@@ -1,0 +1,123 @@
+---
+- name: Show all file extensions
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: AppleShowAllExtensions
+    type: boolean
+    value: true
+
+- name: Set default finder windows view to column
+  osx_defaults:
+    domain: com.apple.finder
+    key: FXPreferredViewStyle
+    type: string
+    value: clmv
+
+- name: Add 'Quit' option
+  osx_defaults:
+    domain: com.apple.finder
+    key: QuitMenuItem
+    type: boolean
+    value: true
+
+- name: Show external hard drives on Desktop
+  osx_defaults:
+    domain: com.apple.finder
+    key: ShowExternalHardDrivesOnDesktop
+    type: boolean
+    value: true
+
+- name: Show Removable Media on Desktop
+  osx_defaults:
+    domain: com.apple.finder
+    key: ShowRemovableMediaOnDesktop
+    type: boolean
+    value: true
+
+- name: Show Path bar
+  osx_defaults:
+    domain: com.apple.finder
+    key: ShowPathbar
+    type: boolean
+    value: true
+
+- name: Hide tags section from sidebar
+  osx_defaults:
+    domain: com.apple.finder
+    key: ShowRecentTags
+    type: boolean
+    value: true
+
+- name: Show sidebar width
+  osx_defaults:
+    domain: com.apple.finder
+    key: SidebarWidth
+    type: float
+    value: 133
+
+- name: Always keep folders on top
+  osx_defaults:
+    domain: com.apple.finder
+    key: '{{ item }}'
+    type: boolean
+    value: true
+  loop:
+    - _FXSortFoldersFirst
+    - _FXSortFoldersFirstOnDesktop
+
+- name: Set default search scope to current folder
+  osx_defaults:
+    domain: com.apple.finder
+    key: FXDefaultSearchScope
+    type: string
+    value: SCcf
+
+- name: Disable trash removal after 30 days
+  osx_defaults:
+    domain: com.apple.finder
+    key: FXRemoveOldTrashItems
+    type: boolean
+    value: false
+
+- name: Enable title bar icons
+  become: true
+  osx_defaults:
+    domain: com.apple.universalaccess
+    key: showWindowTitlebarIcons
+    type: boolean
+    value: true
+
+- name: Disable title bar rollover delay
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: NSToolbarTitleViewRolloverDelay
+    type: float
+    value: 0
+
+- name: Set size bar icon size
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: NSTableViewDefaultSizeMode
+    type: integer
+    value: 2
+
+- name: Disable .DS_Store creation on network volumes
+  osx_defaults:
+    domain: com.apple.desktopservices
+    key: DSDontWriteNetworkStores
+    type: string
+    value: true
+
+- name: Enable Spring-Loading
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: com.apple.springing.enabled
+    type: boolean
+    value: true
+
+- name: Set Spring-Loading delay
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: com.apple.springing.delay
+    type: float
+    value: 0.2

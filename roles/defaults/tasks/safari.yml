@@ -1,0 +1,7 @@
+---
+- name: Show Develop menu in menu bar
+  osx_defaults:
+    domain: com.apple.Safari.SandboxBroker
+    key: ShowDevelopMenu
+    type: boolean
+    value: true

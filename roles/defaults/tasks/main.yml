@@ -1,0 +1,6 @@
+---
+- include_tasks: general.yml
+- include_tasks: docknbar.yml
+- include_tasks: trackpad.yml
+- include_tasks: finder.yml
+- include_tasks: safari.yml

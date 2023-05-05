@@ -1,0 +1,112 @@
+---
+- name: Enable System Dark Mode
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: AppleInterfaceStyle
+    type: string
+    value: Dark
+    
+- name: Set Prefer tabs to manual
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: AppleWindowTabbingMode
+    type: string
+    value: manual
+    
+- name: Show scroll bars only when scrolling
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: AppleShowScrollBars
+    type: string
+    value: WhenScrolling
+    
+- name: Reduce motion
+  osx_defaults:
+    domain: com.apple.universalaccess
+    key: reduceMotion
+    type: boolean
+    value: true
+    
+- name: Set cursor size to 1.6
+  become: true
+  osx_defaults:
+    domain: com.apple.universalaccess
+    key: mouseDriverCursorSize
+    type: float
+    value: 1.6
+    
+- name: Disable Siri
+  osx_defaults:
+    domain: com.apple.assistant.support
+    key: 'Assistant Enabled'
+    type: boolean
+    value: false
+    
+- name: Disable feedback report submission
+  osx_defaults:
+    domain: com.apple.appleseed.FeedbackAssistant
+    key: Autogather
+    type: boolean
+    value: false
+    
+# SCREEMSHOTS
+
+- name: Disable shadow in screenshots
+  osx_defaults:
+    domain: com.apple.screencapture
+    key: 'disable-shadow'
+    type: boolean
+    value: true
+
+- name: Include date in screenshots
+  osx_defaults:
+    domain: com.apple.screencapture
+    key: 'include-date'
+    type: boolean
+    value: true
+
+- name: Display thumbnail after screenshot
+  osx_defaults:
+    domain: com.apple.screencapture
+    key: 'show-thumbnail'
+    type: boolean
+    value: true
+
+- name: Set screenshot format to png
+  osx_defaults:
+    domain: com.apple.screencapture
+    key: type
+    type: string
+    value: png
+
+# KEYBOARD
+    
+- name: Disable spelling auto-correct
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: NSAutomaticSpellingCorrectionEnabled
+    type: boolean
+    value: false
+    
+- name: Disable auto-cap
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: NSAutomaticCapitalizationEnabled
+    type: boolean
+    value: false
+    
+- name: Disable period on double-space
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: NSAutomaticPeriodSubstitutionEnabled
+    type: boolean
+    value: false
+
+# MISSON CONTROL
+    
+- name: Disable automatic desktop rearrangement
+  osx_defaults:
+    domain: com.apple.dock
+    key: 'mru-spaces'
+    type: boolean
+    value: false

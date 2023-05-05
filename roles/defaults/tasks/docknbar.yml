@@ -1,0 +1,126 @@
+---
+
+# DOCK
+
+- name: Set Docker position to bottom
+  osx_defaults:
+    domain: com.apple.dock
+    key: orientation
+    type: string
+    value: bottom
+    
+- name: Set Dock normal size to 40
+  osx_defaults:
+    domain: com.apple.dock
+    key: tilesize
+    type: int
+    value: 40
+    
+- name: Set Dock magnified size to 120
+  osx_defaults:
+    domain: com.apple.dock
+    key: largesize
+    type: float
+    value: 120
+
+- name: Enable Dock magnification
+  osx_defaults:
+    domain: com.apple.dock
+    key: magnification
+    type: boolean
+    value: true
+
+- name: Automatically hide and show Dock
+  osx_defaults:
+    domain: com.apple.dock
+    key: autohide
+    type: boolean
+    value: true
+    
+- name: Disable delay when showing hidden Dock
+  osx_defaults:
+    domain: com.apple.dock
+    key: autohide-delay
+    type: float
+    value: 0
+    
+- name: Disable animation when hiding or showing Dock
+  osx_defaults:
+    domain: com.apple.dock
+    key: autohide-time-modifier
+    type: float
+    value: 0
+    
+- name: Use dimmed icons for hidden apps
+  osx_defaults:
+    domain: com.apple.dock
+    key: showhidden
+    type: boolean
+    value: true
+    
+- name: Disable recent apps
+  osx_defaults:
+    domain: com.apple.dock
+    key: 'show-recents'
+    type: boolean
+    value: false
+    
+- name: Set Dock to only show active apps
+  osx_defaults:
+    domain: com.apple.dock
+    key: static-only
+    type: boolean
+    value: true
+    
+- name: Set windows minimize effect to suck in
+  osx_defaults:
+    domain: com.apple.dock
+    key: mineffect
+    type: string
+    value: suck
+
+# MENU BAR
+
+- name: Enable Menu Bar time separators blinking
+  osx_defaults:
+    domain: com.apple.menuextra.clock
+    key: FlashDateSeparators
+    type: boolean
+    value: true
+
+- name: Set Menu Bar date format
+  osx_defaults:
+    domain: com.apple.menuextra.clock
+    key: DateFormat
+    type: string
+    value: 'EEE MMM d  H:mm'
+
+- name: Enable Menu Bar 24-hour clock
+  osx_defaults:
+    domain: com.apple.menuextra.clock
+    key: Show24Hour
+    type: boolean
+    value: true
+
+- name: Hide Spotlight in Menu Bar
+  osx_defaults:
+    domain: com.apple.spotlight
+    key: 'NSStatusItem Visible Item-0'
+    type: boolean
+    value: false
+
+- name: Hide Text Input in Menu Bar
+  osx_defaults:
+    domain: com.apple.TextInputMenuAgent
+    key: 'NSStatusItem Visible Item-0'
+    type: boolean
+    value: false
+
+- name: Hide Siri in Menu Bar
+  osx_defaults:
+    domain: com.apple.Siri
+    key: StatusMenuVisible
+    type: boolean
+    value: false
+
+# CONTROL CENTER
