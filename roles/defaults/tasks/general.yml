@@ -8,6 +8,11 @@
     type: '{{ item.type }}'
     value: '{{ item.value }}'
   loop:
+    - key: AppleInterfaceStyleSwitchesAutomatically
+      desc: 'system appearance auto-switch'
+      domain: NSGlobalDomain
+      type: boolean
+      value: false
     - key: AppleInterfaceStyle
       desc: 'system appearance'
       domain: NSGlobalDomain
@@ -23,11 +28,14 @@
       domain: NSGlobalDomain
       type: string
       value: WhenScrolling
-    - key: mouseDriverCursorSize
-      desc: 'cursor size'
-      domain: com.apple.universalaccess
-      type: float
-      value: 1.6
+
+- name: Set cursor size
+  become: true
+  osx_defaults:
+    domain: com.apple.universalaccess
+    key: mouseDriverCursorSize
+    type: float
+    value: 1.6
     
 - name: Reduce motion
   osx_defaults:

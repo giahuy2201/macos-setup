@@ -24,15 +24,20 @@
     - key: _FXSortFoldersFirstOnDesktop
       desc: 'keeping folders on top on Desktop'
       domain: com.apple.finder
-    - key: DSDontWriteNetworkStores
-      desc: 'no .DS_Store on network volumes'
-      domain: com.apple.desktopservices
     - key: com.apple.springing.enabled
       desc: 'Spring-Loading'
       domain: NSGlobalDomain
-    - key: showWindowTitlebarIcons
-      desc: 'title bar icons in Finder'
-      domain: com.apple.universalaccess
+    - key: DSDontWriteNetworkStores
+      desc: 'no .DS_Store on network volumes'
+      domain: com.apple.desktopservices
+
+- name: Enable title bar icons in Finder
+  become: true
+  osx_defaults:
+    domain: com.apple.universalaccess
+    key: showWindowTitlebarIcons
+    type: boolean
+    value: true
 
 - name: Disable {{ item.desc }}
   osx_defaults:
@@ -78,8 +83,8 @@
       domain: NSGlobalDomain
       type: integer
       value: 2
-    - key: FXPreferredViewStyle
+    - key: com.apple.springing.delay
       desc: 'Spring-Loading delay'
-      domain: com.apple.springing.delay
+      domain: NSGlobalDomain
       type: float
       value: 0.2

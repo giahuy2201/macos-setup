@@ -86,9 +86,6 @@
     value: false
   loop:
     - key: 'NSStatusItem Visible Item-0'
-      desc: 'Spotlight'
-      domain: com.apple.spotlight
-    - key: 'NSStatusItem Visible Item-0'
       desc: 'Text Input'
       domain: com.apple.TextInputMenuAgent
     - key: StatusMenuVisible
