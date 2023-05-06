@@ -1,123 +1,85 @@
 ---
-- name: Show all file extensions
+- name: Enable {{ item.desc }}
   osx_defaults:
-    domain: NSGlobalDomain
-    key: AppleShowAllExtensions
-    type: boolean
-    value: true
-
-- name: Set default finder windows view to column
-  osx_defaults:
-    domain: com.apple.finder
-    key: FXPreferredViewStyle
-    type: string
-    value: clmv
-
-- name: Add 'Quit' option
-  osx_defaults:
-    domain: com.apple.finder
-    key: QuitMenuItem
-    type: boolean
-    value: true
-
-- name: Show external hard drives on Desktop
-  osx_defaults:
-    domain: com.apple.finder
-    key: ShowExternalHardDrivesOnDesktop
-    type: boolean
-    value: true
-
-- name: Show Removable Media on Desktop
-  osx_defaults:
-    domain: com.apple.finder
-    key: ShowRemovableMediaOnDesktop
-    type: boolean
-    value: true
-
-- name: Show Path bar
-  osx_defaults:
-    domain: com.apple.finder
-    key: ShowPathbar
-    type: boolean
-    value: true
-
-- name: Hide tags section from sidebar
-  osx_defaults:
-    domain: com.apple.finder
-    key: ShowRecentTags
-    type: boolean
-    value: true
-
-- name: Show sidebar width
-  osx_defaults:
-    domain: com.apple.finder
-    key: SidebarWidth
-    type: float
-    value: 133
-
-- name: Always keep folders on top
-  osx_defaults:
-    domain: com.apple.finder
-    key: '{{ item }}'
+    domain: '{{ item.domain }}'
+    key: '{{ item.key }}'
     type: boolean
     value: true
   loop:
-    - _FXSortFoldersFirst
-    - _FXSortFoldersFirstOnDesktop
+    - key: AppleShowAllExtensions
+      desc: 'showing all file extensions'
+      domain: NSGlobalDomain
+    - key: QuitMenuItem
+      desc: "'Quit' option"
+      domain: com.apple.finder
+    - key: ShowExternalHardDrivesOnDesktop
+      desc: "showing external hard drives on Desktop"
+      domain: com.apple.finder
+    - key: ShowRemovableMediaOnDesktop
+      desc: 'showing removable media on Desktop'
+      domain: com.apple.finder
+    - key: _FXSortFoldersFirst
+      desc: 'keeping folders on top'
+      domain: com.apple.finder
+    - key: _FXSortFoldersFirstOnDesktop
+      desc: 'keeping folders on top on Desktop'
+      domain: com.apple.finder
+    - key: DSDontWriteNetworkStores
+      desc: 'no .DS_Store on network volumes'
+      domain: com.apple.desktopservices
+    - key: com.apple.springing.enabled
+      desc: 'Spring-Loading'
+      domain: NSGlobalDomain
+    - key: showWindowTitlebarIcons
+      desc: 'title bar icons in Finder'
+      domain: com.apple.universalaccess
 
-- name: Set default search scope to current folder
+- name: Disable {{ item.desc }}
   osx_defaults:
     domain: com.apple.finder
-    key: FXDefaultSearchScope
-    type: string
-    value: SCcf
-
-- name: Disable trash removal after 30 days
-  osx_defaults:
-    domain: com.apple.finder
-    key: FXRemoveOldTrashItems
+    key: '{{ item.key }}'
     type: boolean
     value: false
+  loop:
+    - key: ShowRecentTags
+      desc: 'tags section from sidebar'
+    - key: FXRemoveOldTrashItems
+      desc: 'trash removal after 30 days'
 
-- name: Enable title bar icons
-  become: true
+- name: Set {{ item.desc }}
   osx_defaults:
-    domain: com.apple.universalaccess
-    key: showWindowTitlebarIcons
-    type: boolean
-    value: true
-
-- name: Disable title bar rollover delay
-  osx_defaults:
-    domain: NSGlobalDomain
-    key: NSToolbarTitleViewRolloverDelay
-    type: float
-    value: 0
-
-- name: Set size bar icon size
-  osx_defaults:
-    domain: NSGlobalDomain
-    key: NSTableViewDefaultSizeMode
-    type: integer
-    value: 2
-
-- name: Disable .DS_Store creation on network volumes
-  osx_defaults:
-    domain: com.apple.desktopservices
-    key: DSDontWriteNetworkStores
-    type: string
-    value: true
-
-- name: Enable Spring-Loading
-  osx_defaults:
-    domain: NSGlobalDomain
-    key: com.apple.springing.enabled
-    type: boolean
-    value: true
-
-- name: Set Spring-Loading delay
-  osx_defaults:
-    domain: NSGlobalDomain
-    key: com.apple.springing.delay
-    type: float
-    value: 0.2
+    domain: '{{ item.domain }}'
+    key: '{{ item.key }}'
+    type: '{{ item.type }}'
+    value: '{{ item.value }}'
+  loop:
+    - key: FXPreferredViewStyle
+      desc: 'default finder windows view'
+      domain: com.apple.finder
+      type: string
+      value: clmv
+    - key: SidebarWidth
+      desc: 'sidebar width'
+      domain: com.apple.finder
+      type: float
+      value: 133
+    - key: FXDefaultSearchScope
+      desc: 'default search scope'
+      domain: com.apple.finder
+      type: string
+      value: SCcf
+    - key: NSToolbarTitleViewRolloverDelay
+      desc: 'title bar rollover delay'
+      domain: NSGlobalDomain
+      type: float
+      value: 0
+    - key: NSTableViewDefaultSizeMode
+      desc: 'size bar icon size'
+      domain: NSGlobalDomain
+      type: integer
+      value: 2
+    - key: FXPreferredViewStyle
+      desc: 'Spring-Loading delay'
+      domain: com.apple.springing.delay
+      type: float
+      value: 0.2

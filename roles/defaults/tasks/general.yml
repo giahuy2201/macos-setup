@@ -1,24 +1,33 @@
 ---
-- name: Enable System Dark Mode
+# Desktop
+
+- name: Set {{ item.desc }}
   osx_defaults:
-    domain: NSGlobalDomain
-    key: AppleInterfaceStyle
-    type: string
-    value: Dark
-    
-- name: Set Prefer tabs to manual
-  osx_defaults:
-    domain: NSGlobalDomain
-    key: AppleWindowTabbingMode
-    type: string
-    value: manual
-    
-- name: Show scroll bars only when scrolling
-  osx_defaults:
-    domain: NSGlobalDomain
-    key: AppleShowScrollBars
-    type: string
-    value: WhenScrolling
+    domain: '{{ item.domain }}'
+    key: '{{ item.key }}'
+    type: '{{ item.type }}'
+    value: '{{ item.value }}'
+  loop:
+    - key: AppleInterfaceStyle
+      desc: 'system appearance'
+      domain: NSGlobalDomain
+      type: string
+      value: Dark
+    - key: AppleWindowTabbingMode
+      desc: 'Prefer tabs to manual'
+      domain: NSGlobalDomain
+      type: string
+      value: manual
+    - key: AppleShowScrollBars
+      desc: 'scroll bars to show when scrolling'
+      domain: NSGlobalDomain
+      type: string
+      value: WhenScrolling
+    - key: mouseDriverCursorSize
+      desc: 'cursor size'
+      domain: com.apple.universalaccess
+      type: float
+      value: 1.6
     
 - name: Reduce motion
   osx_defaults:
@@ -27,86 +36,51 @@
     type: boolean
     value: true
     
-- name: Set cursor size to 1.6
-  become: true
+- name: Disable {{ item.desc }}
   osx_defaults:
-    domain: com.apple.universalaccess
-    key: mouseDriverCursorSize
-    type: float
-    value: 1.6
-    
-- name: Disable Siri
-  osx_defaults:
-    domain: com.apple.assistant.support
-    key: 'Assistant Enabled'
+    domain: '{{ item.domain }}'
+    key: '{{ item.key }}'
     type: boolean
     value: false
-    
-- name: Disable feedback report submission
-  osx_defaults:
-    domain: com.apple.appleseed.FeedbackAssistant
-    key: Autogather
-    type: boolean
-    value: false
-    
-# SCREEMSHOTS
+  loop:
+    - key: mru-spaces
+      desc: 'automatic desktop rearrangement'
+      domain: com.apple.dock
+    - key: 'Assistant Enabled'
+      desc: 'Siri'
+      domain: com.apple.assistant.support
+    - key: Autogather
+      desc: 'feedback report submission'
+      domain: com.apple.appleseed.FeedbackAssistant
 
-- name: Disable shadow in screenshots
+# Screenshots
+    
+- name: Enable {{ item.desc }}
   osx_defaults:
     domain: com.apple.screencapture
-    key: 'disable-shadow'
+    key: '{{ item.key }}'
     type: boolean
     value: true
+  loop:
+    - key: disable-shadow
+      desc: 'spelling auto-correct'
+    - key: include-date
+      desc: 'date'
+    - key: show-thumbnail
+      desc: 'thumbnail'
 
-- name: Include date in screenshots
-  osx_defaults:
-    domain: com.apple.screencapture
-    key: 'include-date'
-    type: boolean
-    value: true
-
-- name: Display thumbnail after screenshot
-  osx_defaults:
-    domain: com.apple.screencapture
-    key: 'show-thumbnail'
-    type: boolean
-    value: true
-
-- name: Set screenshot format to png
-  osx_defaults:
-    domain: com.apple.screencapture
-    key: type
-    type: string
-    value: png
-
-# KEYBOARD
+# Input
     
-- name: Disable spelling auto-correct
+- name: Disable {{ item.desc }}
   osx_defaults:
     domain: NSGlobalDomain
-    key: NSAutomaticSpellingCorrectionEnabled
+    key: '{{ item.key }}'
     type: boolean
     value: false
-    
-- name: Disable auto-cap
-  osx_defaults:
-    domain: NSGlobalDomain
-    key: NSAutomaticCapitalizationEnabled
-    type: boolean
-    value: false
-    
-- name: Disable period on double-space
-  osx_defaults:
-    domain: NSGlobalDomain
-    key: NSAutomaticPeriodSubstitutionEnabled
-    type: boolean
-    value: false
-
-# MISSON CONTROL
-    
-- name: Disable automatic desktop rearrangement
-  osx_defaults:
-    domain: com.apple.dock
-    key: 'mru-spaces'
-    type: boolean
-    value: false
+  loop:
+    - key: NSAutomaticSpellingCorrectionEnabled
+      desc: 'spelling auto-correct'
+    - key: NSAutomaticCapitalizationEnabled
+      desc: 'auto-cap'
+    - key: NSAutomaticPeriodSubstitutionEnabled
+      desc: 'period on double-space'

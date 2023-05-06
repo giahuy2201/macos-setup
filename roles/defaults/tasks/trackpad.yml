@@ -1,17 +1,31 @@
 ---
-- name: Enable force click
+- name: Enable {{ item.desc }}
   osx_defaults:
-    domain: NSGlobalDomain
-    key: com.apple.trackpad.forceClick
-    type: boolean
-    value: true
-
-- name: Enable haptic feedback
-  osx_defaults:
-    domain: com.apple.AppleMultitouchTrackpad
-    key: ActuateDetents
-    type: integer
-    value: 1
+    domain: '{{ item.domain }}'
+    key: '{{ item.key }}'
+    type: '{{ item.type }}'
+    value: '{{ item.value }}'
+  loop:
+    - key: com.apple.trackpad.forceClick
+      desc: 'force click'
+      domain: NSGlobalDomain
+      type: boolean
+      value: true
+    - key: TrackpadThreeFingerDrag
+      desc: 'three finger drag'
+      domain: com.apple.AppleMultitouchTrackpad
+      type: boolean
+      value: true
+    - key: TrackpadRightClick
+      desc: 'right click'
+      domain: com.apple.AppleMultitouchTrackpad
+      type: boolean
+      value: true
+    - key: ActuateDetents
+      desc: 'haptic feedback'
+      domain: com.apple.AppleMultitouchTrackpad
+      type: integer
+      value: 1
 
 - name: Set tracking speed
   osx_defaults:
@@ -20,35 +34,23 @@
     type: float
     value: 0.8
 
-# 0: Light, 1: Medium, 2: Firm
+# Set feedback level - 0: Light, 1: Medium, 2: Firm
 
-- name: Set first click feedback level
+- name: Set {{ item.desc }}
   osx_defaults:
     domain: com.apple.AppleMultitouchTrackpad
-    key: FirstClickThreshold
+    key: '{{ item.key }}'
     type: integer
-    value: 0
+    value: '{{ item.value }}'
+  loop:
+    - key: FirstClickThreshold
+      desc: 'first click feedback level'
+      value: 0
+    - key: SecondClickThreshold
+      desc: 'second click feedback level'
+      value: 0
 
-- name: Set second click feedback level
-  osx_defaults:
-    domain: com.apple.AppleMultitouchTrackpad
-    key: SecondClickThreshold
-    type: integer
-    value: 0
-
-- name: Enable three finger drag
-  osx_defaults:
-    domain: com.apple.AppleMultitouchTrackpad
-    key: TrackpadThreeFingerDrag
-    type: boolean
-    value: true
-
-- name: Enable right click
-  osx_defaults:
-    domain: com.apple.AppleMultitouchTrackpad
-    key: TrackpadRightClick
-    type: boolean
-    value: true
+# Enable key repeat
 
 - name: Disable Press and Hold
   osx_defaults:
@@ -57,16 +59,16 @@
     type: boolean
     value: false
 
-- name: Set key repeat delay
+- name: Set {{ item.desc }}
   osx_defaults:
     domain: NSGlobalDomain
-    key: InitialKeyRepeat
+    key: '{{ item.key }}'
     type: integer
-    value: 10
-
-- name: Set key repeat rate
-  osx_defaults:
-    domain: NSGlobalDomain
-    key: KeyRepeat
-    type: integer
-    value: 1
+    value: '{{ item.value }}'
+  loop:
+    - key: InitialKeyRepeat
+      desc: 'key repeat delay'
+      value: 60
+    - key: KeyRepeat
+      desc: 'key repeat rate'
+      value: 3
