@@ -1,0 +1,33 @@
+# Alt-Tab
+
+- name: Set Alt-Tab {{ item.desc }}
+  osx_defaults:
+    domain: com.lwouis.alt-tab-macos
+    key: '{{ item.key }}'
+    type: '{{ item.type }}'
+    value: '{{ item.value }}'
+  loop:
+    - key: startAtLogin
+      desc: 'start at login'
+      type: string
+      value: 'true'
+    - key: menubarIcon
+      desc: 'Menu Bar icon'
+      type: string
+      value: 3
+    - key: holdShortcut
+      desc: 'hold shortcut'
+      type: string
+      value: '⌘'
+    - key: alignThumbnails
+      desc: 'thumbnail alignment'
+      type: string
+      value: 1
+    - key: showHiddenWindows
+      desc: 'showing hidden windows'
+      type: string
+      value: 1
+    - key: showMinimizedWindows
+      desc: 'showing minimized windows'
+      type: string
+      value: 1
