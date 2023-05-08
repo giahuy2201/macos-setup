@@ -93,7 +93,6 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "angular.enable-experimental-ivy-prompt": false,
-    "workbench.colorTheme": "Monokai Dimmed",
     "vim.vimrc.enable": true,
     "[json]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
