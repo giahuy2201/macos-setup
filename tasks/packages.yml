@@ -1,0 +1,6 @@
+---
+- name: Install necessary Pip packages.
+  pip:
+    name: "{{ item }}"
+  state: present
+  loop: "{{ pip_packages }}"

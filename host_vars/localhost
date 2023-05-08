@@ -1,76 +1,32 @@
 ---
-downloads: ./downloads
 ansible_python_interpreter: python3
 
-configure_dotfiles: false
-configure_preferences: true
-configure_apps: false
-configure_osx: true
-
-# Set to 'true' to configure the Dock via dockutil.
-configure_dock: true
-dockitems_remove:
-    - Launchpad
-    - Mail
-    - Maps
-    - Messages
-    - FaceTime
-    - Reminders
-    - TV
-    - Podcasts
-    - "App Store"
-dockitems_persist:
-    - name: "Finder"
-      path: "/Applications/Finder.app/"
-      pos: 1
-    - name: "Safari"
-      path: "/Applications/Safari.app/"
-      pos: 2
-    - name: "Calendar"
-      path: "/Applications/Calendar.app/"
-      pos: 3
-    - name: "Music"
-      path: "/Applications/Music.app/"
-      pos: 4
-    - name: "Sublime Text"
-      path: "/Applications/Sublime Text.app/"
-      pos: 5
-    - name: "iTerm"
-      path: "/Applications/iTerm.app/"
-      pos: 6
-    - name: "Visual Studio Code"
-      path: "/Applications/Visual Studio Code.app/"
-      pos: 7
-    - name: "System Preferences"
-      path: "/Applications/System Preferences.app/"
-      pos: 8
-
 homebrew_installed_packages:
-    # - ansible # Installed via Pip.
-    - git
-    - nvm
-    - jenv
-    - zsh
-    - jq
-    - htop
-    - vcpkg
-    - maven
-    - gradle
-    - openjdk@17
-    - awscli
-    - openvpn
-    - openssl
-    - telnet
-    - sqlite
-    - spoof-mac
-    - mysql-client
-    - yabai
-    - rust
-    - binwalk
-    - ffmpeg
-    - esptool
-    - stow
-    - syncthing
+  - git
+  - nvm
+  - jenv
+  - zsh
+  - jq
+  - htop
+  - vcpkg
+  - maven
+  - gradle
+  - openjdk@17
+  - awscli
+  - openvpn
+  - openssl
+  - telnet
+  - sqlite
+  - spoof-mac
+  - mysql-client
+  - rust
+  - binwalk
+  - ffmpeg
+  - esptool
+  - stow
+  - syncthing
+  - koekeishiya/formulae/yabai
+  - koekeishiya/formulae/skhd
 
 homebrew_taps:
     - homebrew/core
@@ -78,42 +34,44 @@ homebrew_taps:
 
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
-    - docker
-    - firefox
-    - google-chrome
-    - visual-studio-code
-    - sublime-text
-    - intellij-idea
-    - iterm2
-    - discord
-    - prusaslicer
-    - zoom
-    - iina
-    - google-drive
-    - vnc-viewer
-    - ngrok
-    - adobe-acrobat-reader
-    - adguard
-    - hex-fiend
-    - mullvadvpn
-    - postman
-    - alt-tab
-    - imageoptim
-    - libreoffice
-    - nvidia-geforce-now
-    - raspberry-pi-imager
-    - utm
-    - gqrx
+  - alt-tab
+  - docker
+  - firefox
+  - google-chrome
+  - visual-studio-code
+  - sublime-text
+  - intellij-idea
+  - iterm2
+  - discord
+  - prusaslicer
+  - zoom
+  - iina
+  - google-drive
+  - vnc-viewer
+  - ngrok
+  - adobe-acrobat-reader
+  - adguard
+  - hex-fiend
+  - mullvadvpn
+  - postman
+  - alt-tab
+  - imageoptim
+  - libreoffice
+  - nvidia-geforce-now
+  - raspberry-pi-imager
+  - utm
+  - gqrx
 
-# See `geerlingguy.mas` role documentation for usage instructions.
-mas_email: ""
-mas_password: ""
+pip_packages:
+  - numpy
+  - opencv-python
+  - uploadserver
+
 mas_uninstalled_apps:
-    - { id: 408981434, name: "iMovie" }
-    - { id: 409183694, name: "Keynote" }
-    - { id: 409201541, name: "Pages" }
-    - { id: 409203825, name: "Numbers" }
-    - { id: 682658836, name: "GarageBand" }
+  - { id: 408981434, name: "iMovie" }
+  - { id: 409201541, name: "Pages" }
+  - { id: 409203825, name: "Numbers" }
+  - { id: 682658836, name: "GarageBand" }
 mas_installed_apps:
-    - { id: 1480933944, name: "Vimari" }
-    - { id: 497799835, name: "Xcode" }
+  - { id: 1480933944, name: "Vimari" }
+  - { id: 497799835, name: "Xcode" }
