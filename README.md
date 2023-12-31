@@ -1,46 +1,16 @@
 # macos-setup
 
-## Preparation
-
-1. Install Apple's command line tools
-
+1. Install Apple's command line tools 
 ```
 xcode-select --install
 ```
-
-2. Install [HomeBrew](https://brew.sh/)
-3. Install Ansible
-
-```
-brew install ansible
-```
-
-4. Clone the repo
-
-## Ansible tasks
-
-5. Get the requirements
-
+2. Install Ansible with pip3
+3. Clone the repo
+4. Install requirements 
 ```
 ansible-galaxy install -r requirements.yml
 ```
-
-6. Launch it
-
+4. Run the playbook 
 ```
-ansible-playbook main.yml -K
+ansible-playbook playbook.yml -i inventory -K
 ```
-
-> Add flag --tags "tag1,tag2" if you only want to run tasks with those tags
-
-## Manual tasks
-
--   Restore `.zsh_history`
--   Check jdk, pip versions
--   Install pip3 packages
--   Import IntelliJ, PrusaSlicer settings
--   Add Internet Accounts to System Preferences
--   Login Chrome, VSCode, IntelliJ, Google Drive, AdGuard
--   Copy back documents (Time Machine)
--   Install Minecraft
--   Install other softwares

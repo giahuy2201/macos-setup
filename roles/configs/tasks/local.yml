@@ -1,0 +1,59 @@
+---
+# Restore local configs from NAS
+
+- name: Ensure dotfiles/local directory exists
+  file:
+    path: "{{ dotfiles_dir }}/local"
+    state: directory
+
+- name: Copy local configs from network share
+  block:
+    - name: Collect config files
+      find:
+        paths: "{{ local_config_backup_dir }}/"
+        patterns:
+          - ".*"
+        use_regex: true
+        hidden: true
+        recurse: false
+        file_type: any
+      register: collected_files
+    - name: Copy them
+      copy:
+        src: "{{ item.path }}"
+        dest: "{{ dotfiles_dir }}/local/"
+        remote_src: yes
+      with_items: "{{ collected_files.files }}"
+
+- name: Stow local configs
+  shell:
+    cmd: "stow -v -t /Users/{{ username }} --adopt local/"
+    chdir: "{{ dotfiles_dir }}"
+  register: stow_result
+  changed_when: '"LINK" in stow_result.stderr'
+
+# Set up inimal zsh config
+
+- name: Ensure .config/zsh directory exists
+  file:
+    path: /Users/{{ username }}/.config/zsh
+    state: directory
+
+- name: Download minimal zsh theme
+  get_url:
+    url: https://raw.githubusercontent.com/subnixr/minimal/master/minimal.zsh
+    dest: /Users/{{ username }}/.config/zsh/minimal.zsh
+
+- name: Ensure .aliases file exists
+  file:
+    path: /Users/{{ username }}/.aliases
+    state: touch
+    modification_time: preserve
+    access_time: preserve
+
+- name: Set {{ zsh_mnml_prompt }} as zsh minimal prompt character
+  lineinfile:
+    dest: /Users/{{ username }}/.aliases
+    regexp: "^MNML_USER_CHAR="
+    line: "MNML_USER_CHAR={{ zsh_mnml_prompt }}"
+    state: present

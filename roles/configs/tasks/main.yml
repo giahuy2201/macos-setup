@@ -1,0 +1,4 @@
+---
+- include_tasks: dotfiles.yml
+  when: with_dotfiles
+- include_tasks: local.yml
