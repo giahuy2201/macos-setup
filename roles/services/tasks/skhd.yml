@@ -1,0 +1,3 @@
+---
+- name: Start skhd service
+  command: /opt/homebrew/bin/skhd --start-service

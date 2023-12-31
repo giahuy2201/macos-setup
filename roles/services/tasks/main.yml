@@ -1,0 +1,4 @@
+---
+- include_tasks: syncthing.yml
+- include_tasks: yabai.yml
+- include_tasks: skhd.yml
