@@ -4,4 +4,3 @@
 - include_tasks: trackpad.yml
 - include_tasks: finder.yml
 - include_tasks: safari.yml
-- include_tasks: extra.yml

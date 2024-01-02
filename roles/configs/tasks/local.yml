@@ -11,9 +11,6 @@
     - name: Collect config files
       find:
         paths: "{{ local_config_backup_dir }}/"
-        patterns:
-          - ".*"
-        use_regex: true
         hidden: true
         recurse: false
         file_type: any
@@ -27,7 +24,7 @@
 
 - name: Stow local configs
   shell:
-    cmd: "stow -v -t /Users/{{ username }} --adopt local/"
+    cmd: "/opt/homebrew/bin/stow -v -t {{ home_dir }} --adopt local/"
     chdir: "{{ dotfiles_dir }}"
   register: stow_result
   changed_when: '"LINK" in stow_result.stderr'
@@ -36,24 +33,24 @@
 
 - name: Ensure .config/zsh directory exists
   file:
-    path: /Users/{{ username }}/.config/zsh
+    path: '{{ home_dir }}/.config/zsh'
     state: directory
 
 - name: Download minimal zsh theme
   get_url:
     url: https://raw.githubusercontent.com/subnixr/minimal/master/minimal.zsh
-    dest: /Users/{{ username }}/.config/zsh/minimal.zsh
+    dest: '{{ home_dir }}/.config/zsh/minimal.zsh'
 
 - name: Ensure .aliases file exists
   file:
-    path: /Users/{{ username }}/.aliases
+    path: '{{ home_dir }}/.aliases'
     state: touch
     modification_time: preserve
     access_time: preserve
 
 - name: Set {{ zsh_mnml_prompt }} as zsh minimal prompt character
   lineinfile:
-    dest: /Users/{{ username }}/.aliases
+    dest: '{{ home_dir }}/.aliases'
     regexp: "^MNML_USER_CHAR="
     line: "MNML_USER_CHAR={{ zsh_mnml_prompt }}"
     state: present

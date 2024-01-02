@@ -7,7 +7,7 @@
 
 - name: Stow dotfiles
   shell: 
-    cmd: 'stow -v -t /Users/{{ username }} --adopt */'
+    cmd: '/opt/homebrew/bin/stow -v -t {{ home_dir }} --adopt */'
     chdir: '{{ dotfiles_dir }}'
   register: stow_result
   changed_when: '"LINK" in stow_result.stderr'

@@ -1,3 +1,3 @@
 ---
 - name: Start Syncthing service
-  command: /usr/local/bin/brew services start syncthing
+  command: /opt/homebrew/bin/brew services start syncthing
