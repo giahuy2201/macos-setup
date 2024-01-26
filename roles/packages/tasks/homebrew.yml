@@ -1,0 +1,21 @@
+---
+- name: Update homebrew itself
+  homebrew:
+    update_homebrew: true
+    state: latest
+
+- name: Install homebrew packages
+  become: true
+  command: brew install {{ item }}
+  register: brew_install
+  changed_when: brew_install.rc == 0 and 'Installing' not in brew_install.stdout
+  failed_when: brew_install.rc != 0
+  loop: '{{ homebrew_packages }}'
+
+- name: Install homebrew casks
+  become: true
+  command: brew install --cask {{ item }}
+  register: brew_install
+  changed_when: brew_install.rc == 0 and 'Installing' in brew_install.stdout
+  failed_when: brew_install.rc != 0
+  loop: '{{ homebrew_casks }}'
